@@ -134,9 +134,9 @@
     content:""; position:absolute; inset:0;
     background-image:
       linear-gradient(rgba(16,27,45,0.86), rgba(16,27,45,0.93)),
-      url('https://picsum.photos/seed/paultimate-hero/1600/1400');
+      url('images/hero-bg.jpg');
     background-size:cover; background-position:center;
-    filter:grayscale(0.35);
+    background-color:var(--navy);
   }
   .hero::after{
     content:""; position:absolute; inset:0; opacity:0.5; z-index:1;
@@ -237,7 +237,7 @@
   /* ---------- FOUNDER TEASER (compact) ---------- */
   .founder-teaser{
     background:var(--navy); display:flex; align-items:center; gap:32px;
-    padding:56px 6%; flex-wrap:wrap;
+    padding:56px 6%; flex-wrap:wrap; border-top:1px solid rgba(217,182,91,0.22);
   }
   .ft-seal svg{ width:76px; height:76px; flex-shrink:0; animation: spin 30s linear infinite; }
   @keyframes spin{ to{ transform:rotate(360deg); } }
@@ -257,6 +257,7 @@
   /* ---------- IMAGE BAND ---------- */
   .img-band{
     position:relative; min-height:320px; background-size:cover; background-position:center;
+    background-color:var(--navy-2);
     display:flex; align-items:center; padding:0 6%;
   }
   .img-band::before{
@@ -274,7 +275,8 @@
   .pf-card{ background:var(--parchment); display:flex; gap:0; transition:background .25s ease; }
   .pf-card:hover{ background:var(--parchment-2); }
   .pf-img{
-    width:130px; flex-shrink:0; background-size:cover; background-position:center; position:relative;
+    width:130px; flex-shrink:0; background-size:cover; background-position:center;
+    background-color:var(--navy-2); position:relative;
   }
   .pf-img::after{ content:""; position:absolute; inset:0; background:linear-gradient(rgba(16,27,45,0.15), rgba(16,27,45,0.35)); }
   .pf-body{ padding:22px 22px 22px 20px; flex:1; }
@@ -464,7 +466,7 @@
   </div>
 </section>
 
-<section class="img-band reveal" style="background-image:url('https://picsum.photos/seed/paultimate-office/1400/700');">
+<section class="img-band reveal" style="background-image:url('images/office-lasu.jpg');">
   <div class="img-band-copy">
     <span class="sec-eyebrow">On campus</span>
     <h3>Right at LASU, Faculty of Education</h3>
@@ -500,7 +502,7 @@
   </div>
   <div class="pf-grid">
     <div class="pf-card reveal">
-      <div class="pf-img" style="background-image:url('https://picsum.photos/seed/paultimate-data/300/300');"></div>
+      <div class="pf-img" style="background-image:url('images/project-data-analysis.jpg');"></div>
       <div class="pf-body">
         <div class="pf-tag">Data analysis</div>
         <div class="pf-title">Postgraduate SPSS analysis &amp; results chapter</div>
@@ -509,7 +511,7 @@
       </div>
     </div>
     <div class="pf-card reveal">
-      <div class="pf-img" style="background-image:url('https://picsum.photos/seed/paultimate-lit/300/300');"></div>
+      <div class="pf-img" style="background-image:url('images/project-literature-review.jpg');"></div>
       <div class="pf-body">
         <div class="pf-tag">Literature review</div>
         <div class="pf-title">Undergraduate literature review &amp; source mapping</div>
@@ -518,7 +520,7 @@
       </div>
     </div>
     <div class="pf-card reveal">
-      <div class="pf-img" style="background-image:url('https://picsum.photos/seed/paultimate-ethics/300/300');"></div>
+      <div class="pf-img" style="background-image:url('images/project-ethical-clearance.jpg');"></div>
       <div class="pf-body">
         <div class="pf-tag">Ethical clearance</div>
         <div class="pf-title">Ethical clearance processing for field research</div>
@@ -527,7 +529,7 @@
       </div>
     </div>
     <div class="pf-card reveal">
-      <div class="pf-img" style="background-image:url('https://picsum.photos/seed/paultimate-plag/300/300');"></div>
+      <div class="pf-img" style="background-image:url('images/project-proofreading.jpg');"></div>
       <div class="pf-body">
         <div class="pf-tag">Proofreading</div>
         <div class="pf-title">Plagiarism check &amp; proofreading, thesis-wide</div>
