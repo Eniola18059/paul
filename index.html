@@ -171,9 +171,14 @@
   h1{
     font-family:'Fraunces', serif; font-weight:500; color:var(--parchment);
     font-size:clamp(34px, 4.6vw, 58px); line-height:1.12; letter-spacing:-0.01em;
-    margin-bottom:22px;
+    margin-bottom:22px; min-height:2.3em;
   }
   h1 em{ font-style:italic; color:var(--gold-2); }
+  #heroTitle.typing::after{
+    content:"|"; color:var(--gold-2); margin-left:2px; font-weight:400;
+    animation: blinkCursor 0.85s step-start infinite;
+  }
+  @keyframes blinkCursor{ 50%{ opacity:0; } }
   .hero-sub{
     color:#C9CFDB; font-size:16px; line-height:1.7; max-width:480px; margin-bottom:36px;
   }
@@ -497,7 +502,7 @@
   <div class="hero-ring"></div>
   <div class="hero-inner">
     <div class="eyebrow">Research &amp; documentation services</div>
-    <h1>You ask the questions.<br>We provide the <em>ultimate</em> answers.</h1>
+    <h1 id="heroTitle">You ask the questions.<br>We provide the <em>ultimate</em> answers.</h1>
     <p class="hero-sub">Research assistance, data analysis, ethical clearance, and academic support for students and researchers — trusted from our office at LASU, Ojo, and serving clients across Nigeria and abroad.</p>
     <div class="hero-actions">
       <a href="contact.html" class="btn btn-primary">Start a request →</a>
@@ -795,9 +800,40 @@
 </a>
 
 <script>
+  // typewriter effect for hero headline
+  function typeWriterHTML(el, html, speed){
+    var tokens = html.match(/<[^>]+>|[^<]/g) || [];
+    var i = 0;
+    el.innerHTML = '';
+    el.classList.add('typing');
+    function step(){
+      if(i < tokens.length){
+        var tok = tokens[i];
+        el.innerHTML += tok;
+        i++;
+        var isTag = tok.charAt(0) === '<';
+        var isSpace = tok === ' ';
+        setTimeout(step, isTag ? 0 : (isSpace ? speed * 0.4 : speed));
+      } else {
+        setTimeout(function(){ el.classList.remove('typing'); }, 900);
+      }
+    }
+    step();
+  }
+
   window.addEventListener('load', function(){
     setTimeout(function(){
       document.getElementById('preloader').classList.add('hide');
+      var heroTitle = document.getElementById('heroTitle');
+      if(heroTitle){
+        var original = heroTitle.innerHTML;
+        var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if(prefersReduced){
+          heroTitle.innerHTML = original;
+        } else {
+          typeWriterHTML(heroTitle, original, 32);
+        }
+      }
     }, 1400);
   });
   var header = document.getElementById('siteHeader');
